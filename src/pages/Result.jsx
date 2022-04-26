@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { capitalizeFirstLetter } from "../utils/capitalize";
 
-const LoadResult = () => {
+const Result = () => {
     const location = useLocation();
-
     const navigate = useNavigate();
-
-    console.log(location?.state?.result);
 
     useEffect(() => {
         if (!location?.state?.result) navigate("/");
@@ -15,12 +13,12 @@ const LoadResult = () => {
     return (
         <>
             <div className="container">
-                <div className="jumbotron  bg-light text-white m-4 rounded px-5">
+                <div className="jumbotron bg-light text-white m-4 rounded px-5">
                     <div className="container text-secondary">
                         <h1 className="display-5">Leads enviados con éxito!</h1>
                         <p className="lead">
-                            Los leads han sido enviados a la API de{" "}
-                            {location?.state?.brand}
+                            Los leads han sido enviados a la API de
+                            {capitalizeFirstLetter(location?.state?.brand)}
                         </p>
                         <hr className="my-4"></hr>
                         <div className="d-flex">
@@ -61,4 +59,4 @@ const LoadResult = () => {
     );
 };
 
-export default LoadResult;
+export default Result;

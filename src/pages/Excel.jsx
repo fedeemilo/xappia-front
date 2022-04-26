@@ -4,8 +4,9 @@ import axios from "axios";
 import { URL_BACKEND } from "../constants/urls";
 import Form from "../components/Form";
 import { SiMicrosoftexcel } from "react-icons/si";
+import { capitalizeFirstLetter } from "../utils/capitalize";
 
-const LoadExcel = () => {
+const Excel = () => {
     const [data, setData] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -59,7 +60,7 @@ const LoadExcel = () => {
                 <h3 className="p-3">Cargar archivo excel </h3>
 
                 <p className="font-weight-light mt-n4">
-                    Envío de leads a {brand}
+                    Envío de leads a {capitalizeFirstLetter(brand)}
                 </p>
                 <div className="d-flex">
                     <Form
@@ -73,4 +74,4 @@ const LoadExcel = () => {
     );
 };
 
-export default LoadExcel;
+export default Excel;
