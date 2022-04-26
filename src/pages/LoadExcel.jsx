@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { URL_BACKEND } from "../constants/urls";
+import Form from "../components/Form";
+import { SiMicrosoftexcel } from "react-icons/si";
 
 const LoadExcel = () => {
     const [data, setData] = useState(null);
@@ -44,37 +46,28 @@ const LoadExcel = () => {
 
     return (
         <>
+            <div
+                className="d-flex align-items-center position-absolute"
+                style={{ right: "13%", top: "15%" }}
+            >
+                <p className="mt-3 font-italic">Ejemplo</p>
+                <a href={`/example/${brand}`} className="text-success h3 ml-2 ">
+                    <SiMicrosoftexcel />
+                </a>
+            </div>
             <div className="d-flex flex-column justify-content-center align-items-center p-3">
-                <h3 className="p-3">Cargar archivo excel</h3>
+                <h3 className="p-3">Cargar archivo excel </h3>
+
                 <p className="font-weight-light mt-n4">
                     Envío de leads a {brand}
                 </p>
-                <form onSubmit={handleSubmit}>
-                    <div className="input-group">
-                        <input
-                            type="file"
-                            className="form-control h-100"
-                            name="uploadfile"
-                            aria-label="Upload"
-                            onChange={handleFileUpload}
-                            required
-                        />
-                        <button
-                            className="btn btn-outline-secondary"
-                            type="submit"
-                        >
-                            Cargar
-                        </button>
-                        <div
-                            className={`spinner-border text-secondary ml-2 mt-1 ${
-                                !isLoading ? "d-none" : ""
-                            }`}
-                            role="status"
-                        >
-                            <span className="sr-only">Loading...</span>
-                        </div>
-                    </div>
-                </form>
+                <div className="d-flex">
+                    <Form
+                        handleSubmit={handleSubmit}
+                        handleFileUpload={handleFileUpload}
+                        isLoading={isLoading}
+                    />
+                </div>
             </div>
         </>
     );

@@ -2,7 +2,8 @@ export const URLS = {
     home: "/",
     other: "*",
     excel: "/excel/:brand",
-    result: "/result"
+    result: "/result",
+    example: "/example/:brand"
 };
 
 export const URL_BACKEND = host =>

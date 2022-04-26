@@ -3,6 +3,7 @@ import Home from "../pages/Home";
 import LoadExcel from "../pages/LoadExcel";
 import { URLS } from "../constants/urls";
 import LoadResult from "../pages/LoadResult";
+import LoadExample from "../pages/LoadExample";
 
 const Router = () => {
     return (
@@ -11,6 +12,7 @@ const Router = () => {
                 <Route path={URLS.home} element={<Home />} />
                 <Route path={URLS.excel} element={<LoadExcel />} />
                 <Route path={URLS.result} element={<LoadResult />} />
+                <Route path={URLS.example} element={<LoadExample />} />
                 <Route path={URLS.other} element={<Home />} />
             </Switch>
         </BrowserRouter>
