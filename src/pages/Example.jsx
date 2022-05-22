@@ -15,11 +15,11 @@ const Example = () => {
             </a>
             <div className="d-flex justify-content-center">
                 <h4 className="text-center mb-4 font-italic">
-                    Ejemplo formato archivo excel (API
+                    Ejemplo formato archivo excel (API{" "}
                     {capitalizeFirstLetter(brand)})
                 </h4>
             </div>
-            <Table />
+            <Table brand={brand} />
         </div>
     );
 };

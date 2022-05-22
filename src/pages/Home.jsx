@@ -16,7 +16,7 @@ const BRAND_CARDS = [
         message: "Aún no disponible",
         icon: <SiVolkswagen style={{ fontSize: "1.6rem" }} />,
         path: "excel/volkswagen",
-        disabled: true
+        disabled: false
     }
 ];
 

@@ -6,8 +6,8 @@ const Card = ({ icon, text, path, disabled, message }) => {
             <div className="mx-auto p-2">{icon}</div>
             <div className="card-body mx-auto text-center w-100">
                 <h5 className="card-title">{text}</h5>
-                {message && (
-                    <h6 class="card-subtitle mb-2 text-muted">{message}</h6>
+                {disabled && (
+                    <h6 className="card-subtitle mb-2 text-muted">{message}</h6>
                 )}
                 <a
                     href={path}

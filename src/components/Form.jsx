@@ -3,11 +3,11 @@ import React from "react";
 const Form = ({ handleSubmit, handleFileUpload, isLoading }) => {
     return (
         <form onSubmit={handleSubmit}>
-            <div className="input-group">
+            <div className="input-group input-group-lg">
                 <input
                     type="file"
                     className="form-control h-100"
-                    name="uploadfile"
+                    name="file"
                     aria-label="Upload"
                     onChange={handleFileUpload}
                     required
