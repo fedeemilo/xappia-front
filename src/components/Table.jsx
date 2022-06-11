@@ -1,8 +1,6 @@
 import React from "react";
 
 const Table = ({ brand }) => {
-    console.log(brand);
-
     if (brand === "toyota")
         return (
             <table className="table table-bordered">

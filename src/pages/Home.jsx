@@ -8,7 +8,8 @@ const BRAND_CARDS = [
         text: "Toyota",
         icon: <SiToyota style={{ fontSize: "2rem" }} />,
         path: "/excel/toyota",
-        disabled: false
+        disabled: false,
+        dealers: ["KAI", "TTC"]
     },
     {
         id: 2,
@@ -25,7 +26,7 @@ const Home = () => {
         <div className="container">
             <div className="row mt-4">
                 {BRAND_CARDS.map(
-                    ({ id, icon, text, path, disabled, message }) => (
+                    ({ id, icon, text, path, disabled, message, dealers }) => (
                         <div key={id} className="col-sm-12 col-md-6 my-2">
                             <Card
                                 icon={icon}
@@ -33,6 +34,7 @@ const Home = () => {
                                 path={path}
                                 disabled={disabled}
                                 message={message}
+                                dealers={dealers}
                             />
                         </div>
                     )

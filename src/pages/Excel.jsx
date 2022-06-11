@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import { URL_BACKEND } from "../constants/urls";
 import Form from "../components/Form";
@@ -11,21 +11,25 @@ const Excel = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     const { brand } = useParams();
+    const useQuery = () => new URLSearchParams(useLocation().search);
+    const query = useQuery();
     const navigate = useNavigate();
     const urlBackend = URL_BACKEND(window.location.host);
 
     const fetch = async () => {
-        const url = `${urlBackend}/leads/${brand}`;
+        const url = `${urlBackend}/leads/${brand}?dealer=${query.get(
+            "dealer"
+        )}`;
 
         try {
             setIsLoading(true);
             const {
-                data: { result }
+                data: { ok, result }
             } = await axios.post(url, data);
 
             console.log(result);
 
-            navigate(`/result`, { state: { result, brand } });
+            if (ok) navigate(`/result`, { state: { result, brand } });
         } catch (error) {
             setIsLoading(false);
             console.log(error);

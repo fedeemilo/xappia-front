@@ -1,6 +1,6 @@
 import React from "react";
 
-const Card = ({ icon, text, path, disabled, message }) => {
+const Card = ({ icon, text, path, disabled, message, dealers }) => {
     return (
         <div className="card w-100 bg-light h-100" style={{ width: "18rem" }}>
             <div className="mx-auto p-2">{icon}</div>
@@ -9,14 +9,27 @@ const Card = ({ icon, text, path, disabled, message }) => {
                 {disabled && (
                     <h6 className="card-subtitle mb-2 text-muted">{message}</h6>
                 )}
-                <a
-                    href={path}
-                    className={`btn btn-outline-info w-50 mt-2 ${
-                        disabled ? "disabled" : ""
-                    }`}
-                >
-                    Cargar
-                </a>
+                {dealers?.map(dealer => (
+                    <a
+                        href={`${path}?dealer=${dealer}`}
+                        className={`btn btn-outline-info w-25 mt-2 ml-2 ${
+                            disabled ? "disabled" : ""
+                        }`}
+                    >
+                        {dealer}
+                    </a>
+                ))}
+
+                {!dealers && (
+                    <a
+                        href={path}
+                        className={`btn btn-outline-info w-50 mt-2 ${
+                            disabled ? "disabled" : ""
+                        }`}
+                    >
+                        Cargar
+                    </a>
+                )}
             </div>
         </div>
     );
