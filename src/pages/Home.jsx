@@ -8,13 +8,14 @@ const BRAND_CARDS = [
         text: "Toyota",
         icon: <SiToyota style={{ fontSize: "2rem" }} />,
         path: "/excel/toyota",
-        disabled: false,
-        dealers: ["KAI", "TTC"]
+        dealers: [
+            { id: "KAI", disabled: false },
+            { id: "TTC", disabled: true }
+        ]
     },
     {
         id: 2,
         text: "Volkswagen",
-        message: "Aún no disponible",
         icon: <SiVolkswagen style={{ fontSize: "1.6rem" }} />,
         path: "excel/volkswagen",
         disabled: false

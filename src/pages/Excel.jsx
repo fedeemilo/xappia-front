@@ -5,6 +5,7 @@ import { URL_BACKEND } from "../constants/urls";
 import Form from "../components/Form";
 import { SiMicrosoftexcel } from "react-icons/si";
 import { capitalizeFirstLetter } from "../utils/capitalize";
+import { validateDealer } from "../utils/validateDealer";
 
 const Excel = () => {
     const [data, setData] = useState(null);
@@ -13,13 +14,15 @@ const Excel = () => {
     const { brand } = useParams();
     const useQuery = () => new URLSearchParams(useLocation().search);
     const query = useQuery();
+    const dealer = query.get("dealer");
     const navigate = useNavigate();
     const urlBackend = URL_BACKEND(window.location.host);
+    const validDealer = validateDealer(dealer);
+
+    console.log(validDealer);
 
     const fetch = async () => {
-        const url = `${urlBackend}/leads/${brand}?dealer=${query.get(
-            "dealer"
-        )}`;
+        const url = `${urlBackend}/leads/${brand}?dealer=${dealer}`;
 
         try {
             setIsLoading(true);
@@ -27,12 +30,19 @@ const Excel = () => {
                 data: { ok, result }
             } = await axios.post(url, data);
 
-            console.log(result);
-
-            if (ok) navigate(`/result`, { state: { result, brand } });
-        } catch (error) {
+            if (ok)
+                navigate(`/result`, {
+                    state: { result, brand, dealer: dealer || "", validDealer }
+                });
+        } catch (err) {
+            console.log(err);
+            const { ok, error } = err.response.data;
             setIsLoading(false);
-            console.log(error);
+
+            if (!ok)
+                navigate(
+                    `/error?brand=${brand}&dealer=${dealer}&error=${error}`
+                );
         }
     };
 

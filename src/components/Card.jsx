@@ -6,18 +6,18 @@ const Card = ({ icon, text, path, disabled, message, dealers }) => {
             <div className="mx-auto p-2">{icon}</div>
             <div className="card-body mx-auto text-center w-100">
                 <h5 className="card-title">{text}</h5>
-                {disabled && (
-                    <h6 className="card-subtitle mb-2 text-muted">{message}</h6>
-                )}
-                {dealers?.map(dealer => (
-                    <a
-                        href={`${path}?dealer=${dealer}`}
-                        className={`btn btn-outline-info w-25 mt-2 ml-2 ${
-                            disabled ? "disabled" : ""
-                        }`}
-                    >
-                        {dealer}
-                    </a>
+
+                {dealers?.map(({ id, disabled }) => (
+                    <>
+                        <a
+                            href={`${path}?dealer=${id}`}
+                            className={`btn btn-outline-info w-25 mt-2 ml-2 ${
+                                disabled ? "disabled" : ""
+                            }`}
+                        >
+                            {id}
+                        </a>
+                    </>
                 ))}
 
                 {!dealers && (
