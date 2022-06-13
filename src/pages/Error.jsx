@@ -22,7 +22,7 @@ const Error = () => {
                                         {error ||
                                             "Ha ocurrido un error en la respuesta de Leads"}
                                     </h1>
-                                    {error.includes("Fuente") && (
+                                    {error?.includes("Fuente") && (
                                         <p className="lead">
                                             <BsInfoCircle /> Revise la validez
                                             del Dealer {dealer} de{" "}
