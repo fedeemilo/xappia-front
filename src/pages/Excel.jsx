@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import { URL_BACKEND } from "../constants/urls";
 import Form from "../components/Form";
 import { SiMicrosoftexcel } from "react-icons/si";
 import { capitalizeFirstLetter } from "../utils/capitalize";
-import { validateDealer } from "../utils/validateDealer";
 
 const Excel = () => {
     const [data, setData] = useState(null);
@@ -17,9 +16,6 @@ const Excel = () => {
     const dealer = query.get("dealer");
     const navigate = useNavigate();
     const urlBackend = URL_BACKEND(window.location.host);
-    const validDealer = validateDealer(dealer);
-
-    console.log(validDealer);
 
     const fetch = async () => {
         const url = `${urlBackend}/leads/${brand}?dealer=${dealer}`;
@@ -30,9 +26,11 @@ const Excel = () => {
                 data: { ok, result }
             } = await axios.post(url, data);
 
+            console.log(ok);
+
             if (ok)
                 navigate(`/result`, {
-                    state: { result, brand, dealer: dealer || "", validDealer }
+                    state: { result, brand, dealer: dealer || "" }
                 });
         } catch (err) {
             console.log(err);

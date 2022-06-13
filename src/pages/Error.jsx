@@ -1,13 +1,14 @@
 import { useLocation } from "react-router-dom";
 import { capitalizeFirstLetter } from "../utils/capitalize";
+import { BsInfoCircle } from "react-icons/bs";
 
 const Error = () => {
-    const location = useLocation();
     const search = useLocation().search;
     const brand = new URLSearchParams(search).get("brand");
     const dealer = new URLSearchParams(search).get("dealer");
     const error = new URLSearchParams(search).get("error");
-    const validDealer = location?.state?.validDealer;
+
+    console.log(error);
 
     if (brand === "toyota")
         return (
@@ -19,15 +20,15 @@ const Error = () => {
                                 <div className="container text-white">
                                     <h1 className="display-5">
                                         {error ||
-                                            (!validDealer &&
-                                                "El Dealer ingresado no es válido") ||
                                             "Ha ocurrido un error en la respuesta de Leads"}
                                     </h1>
-                                    <p className="lead">
-                                        Vuelva a intentar realizar el envío a la
-                                        API de {capitalizeFirstLetter(brand)} (
-                                        {dealer})
-                                    </p>
+                                    {error.includes("Fuente") && (
+                                        <p className="lead">
+                                            <BsInfoCircle /> Revise la validez
+                                            del Dealer {dealer} de{" "}
+                                            {capitalizeFirstLetter(brand)}
+                                        </p>
+                                    )}
                                     <hr
                                         className="my-4"
                                         style={{ backgroundColor: "white" }}
@@ -36,10 +37,10 @@ const Error = () => {
                                         <p className="lead mr-2">
                                             <a
                                                 className="btn btn-outline-light btn-lg"
-                                                href={`/excel/${brand}?dealer=${dealer}`}
+                                                href={"/"}
                                                 role="button"
                                             >
-                                                Intentar nuevamente
+                                                Volver al Inicio
                                             </a>
                                         </p>
                                     </div>

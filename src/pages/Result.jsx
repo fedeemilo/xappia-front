@@ -9,15 +9,16 @@ const Result = () => {
     const result = location?.state?.result;
     const brand = location?.state?.brand;
     const dealer = location?.state?.dealer;
-    const validDealer = location?.state?.validDealer;
-    const dataIsNull = () => result?.every(lead => lead === null);
+
+    console.log(result);
+
+    const dataIsNull = () =>
+        Array.isArray(result) ? result?.every(lead => lead === null) : false;
     const leadsWithoutData = dataIsNull();
 
     useEffect(() => {
         if (!result || leadsWithoutData)
-            navigate(`/error?brand=${brand}&dealer=${dealer}`, {
-                state: validDealer
-            });
+            navigate(`/error?brand=${brand}&dealer=${dealer}`);
     }, []);
 
     if (brand === "toyota")
