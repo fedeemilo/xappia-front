@@ -1,6 +1,6 @@
 import React from "react";
 
-const Card = ({ icon, text, path, disabled, message, dealers }) => {
+const Card = ({ icon, text, path, disabled, dealers }) => {
     return (
         <div className="card w-100 bg-light h-100" style={{ width: "18rem" }}>
             <div className="mx-auto p-2">{icon}</div>

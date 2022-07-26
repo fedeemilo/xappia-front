@@ -33,7 +33,7 @@ const Excel = () => {
                     state: { result, brand, dealer: dealer || "" }
                 });
         } catch (err) {
-            console.log(err);
+            console.log(err.response);
             const { ok, error } = err.response.data;
             setIsLoading(false);
 

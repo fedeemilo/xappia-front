@@ -10,7 +10,7 @@ const BRAND_CARDS = [
         path: "/excel/toyota",
         dealers: [
             { id: "KAI", disabled: false },
-            { id: "TTC", disabled: true }
+            { id: "TTC", disabled: false }
         ]
     },
     {

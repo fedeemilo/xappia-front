@@ -8,7 +8,7 @@ const Error = () => {
     const dealer = new URLSearchParams(search).get("dealer");
     const error = new URLSearchParams(search).get("error");
 
-    console.log(error);
+    const mailtoHref = `mailto:fedeemilo91@gmail.com?subject=Error en API ${brand}&body=Ha ocurrido el siguiente error: ***${error}***`;
 
     if (brand === "toyota")
         return (
@@ -41,6 +41,59 @@ const Error = () => {
                                                 role="button"
                                             >
                                                 Volver al Inicio
+                                            </a>
+                                        </p>
+                                        <p className="lead mr-2">
+                                            <a
+                                                className="btn btn-outline-light btn-lg"
+                                                href={mailtoHref}
+                                                role="button"
+                                            >
+                                                Informar error
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </>
+        );
+
+    if (brand === "volkswagen")
+        return (
+            <>
+                <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-12">
+                            <div className="jumbotron bg-danger text-white m-4 rounded px-5 text-center">
+                                <div className="container text-white">
+                                    <p style={{ fontSize: "1.7rem" }}>
+                                        {error ||
+                                            "Ha ocurrido un error en la respuesta de Leads"}
+                                    </p>
+                                    <hr
+                                        className="my-4"
+                                        style={{ backgroundColor: "white" }}
+                                    ></hr>
+                                    <div className="d-flex justify-content-center">
+                                        <p className="lead mr-2">
+                                            <a
+                                                className="btn btn-outline-light btn-lg"
+                                                href={"/"}
+                                                role="button"
+                                            >
+                                                Volver al Inicio
+                                            </a>
+                                        </p>
+                                        <p className="lead mr-2">
+                                            <a
+                                                className="btn btn-outline-light btn-lg"
+                                                href={mailtoHref}
+                                                role="button"
+                                            >
+                                                Informar error
                                             </a>
                                         </p>
                                     </div>
