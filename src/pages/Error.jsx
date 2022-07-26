@@ -45,7 +45,7 @@ const Error = () => {
                                         </p>
                                         <p className="lead mr-2">
                                             <a
-                                                className="btn btn-outline-light btn-lg"
+                                                className="btn btn-light btn-lg"
                                                 href={mailtoHref}
                                                 role="button"
                                             >
@@ -89,7 +89,7 @@ const Error = () => {
                                         </p>
                                         <p className="lead mr-2">
                                             <a
-                                                className="btn btn-outline-light btn-lg"
+                                                className="btn btn-light btn-lg"
                                                 href={mailtoHref}
                                                 role="button"
                                             >
