@@ -33,14 +33,14 @@ const Excel = () => {
                     state: { result, brand, dealer: dealer || "" }
                 });
         } catch (err) {
-            console.log(err.response);
-            const { ok, error } = err.response.data;
+            console.log(err);
+            console.log(err?.response);
             setIsLoading(false);
-
-            if (!ok)
-                navigate(
-                    `/error?brand=${brand}&dealer=${dealer}&error=${error}`
-                );
+            navigate(
+                `/error?brand=${brand}&dealer=${dealer}&error=${
+                    err?.response?.data?.error || "Error desconocido"
+                }`
+            );
         }
     };
 
