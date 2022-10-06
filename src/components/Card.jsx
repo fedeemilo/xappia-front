@@ -1,5 +1,3 @@
-import React from "react";
-
 const Card = ({ icon, text, path, disabled, dealers }) => {
     return (
         <div className="card w-100 bg-light h-100" style={{ width: "18rem" }}>
