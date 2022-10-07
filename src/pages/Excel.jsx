@@ -26,8 +26,6 @@ const Excel = () => {
                 data: { ok, result }
             } = await axios.post(url, data);
 
-            console.log(ok);
-
             if (ok)
                 navigate(`/result`, {
                     state: { result, brand, dealer: dealer || "" }
