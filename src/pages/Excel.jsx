@@ -32,7 +32,6 @@ const Excel = () => {
                 });
         } catch (err) {
             console.log(err);
-            console.log(err?.response);
             setIsLoading(false);
             navigate(
                 `/error?brand=${brand}&dealer=${dealer}&error=${

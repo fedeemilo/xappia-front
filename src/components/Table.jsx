@@ -97,6 +97,11 @@ const Table = ({ brand }) => {
                 </tbody>
             </table>
         );
+    
+    if (brand === 'chevrolet')
+            return (
+                <></>
+            )
 };
 
 export default Table;

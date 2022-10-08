@@ -26,7 +26,7 @@ const BRAND_CARDS = [
         text: "Chevrolet",
         icon: <SiChevrolet style={{ fontSize: "3rem" }} />,
         path: "/excel/chevrolet",
-        disabled: true
+        disabled: false
     }
 ];
 
