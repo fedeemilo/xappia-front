@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 const Table = ({ brand }) => {
-    if (brand === "toyota")
+    if (brand === 'toyota')
         return (
             <table className="table table-bordered">
                 <thead className="thead-light">
@@ -52,7 +52,7 @@ const Table = ({ brand }) => {
             </table>
         );
 
-    if (brand === "volkswagen")
+    if (brand === 'volkswagen')
         return (
             <table className="table table-bordered">
                 <thead className="thead-light">
@@ -97,11 +97,61 @@ const Table = ({ brand }) => {
                 </tbody>
             </table>
         );
-    
+
     if (brand === 'chevrolet')
-            return (
-                <></>
-            )
+        return (
+            <>
+                <table className="table table-bordered">
+                    <thead className="thead-light">
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Email*</th>
+                            <th scope="col">Auto</th>
+                            <th scope="col">Consulta</th>
+                            <th scope="col">Telefono*</th>
+                            <th scope="col">Sueldo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Rafael</th>
+                            <td>Sosa</td>
+                            <td>rafasosa@gmail.com</td>
+                            <td>Nuevo T-Cross</td>
+                            <td>Consulta ejemplo</td>
+                            <td>1164111357</td>
+                            <td>$480000</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Pedro</th>
+                            <td>Perez</td>
+                            <td>pedroperez@gmail.com</td>
+                            <td>Nuevo T-Cross</td>
+                            <td>Consulta ejemplo</td>
+                            <td>123456789</td>
+                            <td>$980000</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Julieta</th>
+                            <td>Diaz</td>
+                            <td>julidiaz@gmail.com</td>
+                            <td>Nuevo T-Cross</td>
+                            <td>Consulta ejemplo</td>
+                            <td>98987463738</td>
+                            <td>$1280000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div className='d-flex'>
+                    <span><strong>*</strong></span>
+                    <footer className="font-italic text-muted">
+                        Email y Telefono deben ser unicos en cada lead, de lo
+                        contrario la peticion va a fallar.
+                    </footer>
+                </div>
+            </>
+        );
 };
 
 export default Table;
