@@ -11,7 +11,8 @@ const BRAND_CARDS = [
         dealers: [
             { id: "KAI", disabled: false },
             { id: "TTC", disabled: false },
-            { id: "ASI", disabled: false }
+            { id: "ASI", disabled: false },
+            { id: "TRI", disabled: false }
         ]
     },
     {
