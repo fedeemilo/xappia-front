@@ -4,7 +4,6 @@ import axios from "axios";
 import { URL_BACKEND } from "../constants/urls";
 import Form from "../components/Form";
 import { SiMicrosoftexcel } from "react-icons/si";
-import { capitalizeFirstLetter } from "../utils/capitalize";
 
 const Excel = () => {
     const [data, setData] = useState(null);
@@ -63,7 +62,10 @@ const Excel = () => {
                 style={{ right: "13.5%", top: "13%" }}
             >
                 <p className="mt-3 font-italic">Ejemplo</p>
-                <a href={`/example/${brand}`} className="text-success h3 ml-2 ">
+                <a
+                    href={`/example/${brand}?dealer=${dealer}`}
+                    className="text-success h3 ml-2 "
+                >
                     <SiMicrosoftexcel />
                 </a>
             </div>
@@ -71,7 +73,7 @@ const Excel = () => {
                 <h2 className="p-3 mt-5">Cargar archivo excel </h2>
 
                 <p className="font-weight-light font-italic mt-n3">
-                    Envío de leads a {capitalizeFirstLetter(brand)}
+                    Envío de leads a <strong>{brand.toUpperCase()}</strong>
                 </p>
                 <div className="d-flex mt-4 pb-5">
                     <Form
