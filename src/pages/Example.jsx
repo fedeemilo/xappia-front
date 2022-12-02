@@ -2,7 +2,6 @@ import React from "react";
 import Table from "../components/Table";
 import { useParams, useLocation } from "react-router-dom";
 import { TiArrowBack } from "react-icons/ti";
-import { capitalizeFirstLetter } from "../utils/capitalize";
 
 const Example = () => {
     const { brand } = useParams();
@@ -21,8 +20,8 @@ const Example = () => {
             </a>
             <div className="d-flex justify-content-center">
                 <h4 className="text-center mb-4 font-italic">
-                    Ejemplo formato archivo excel (API{" "}
-                    {capitalizeFirstLetter(brand)})
+                    Ejemplo formato archivo excel -{" "}
+                    <strong>{brand.toUpperCase()}</strong>
                 </h4>
             </div>
             <Table brand={brand} />

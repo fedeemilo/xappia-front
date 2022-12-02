@@ -106,10 +106,10 @@ const Table = ({ brand }) => {
                         <tr>
                             <th scope="col">Nombre</th>
                             <th scope="col">Apellido</th>
-                            <th scope="col">Email</th>
+                            <th scope="col">Email*</th>
                             <th scope="col">Auto</th>
                             <th scope="col">Consulta</th>
-                            <th scope="col">Telefono</th>
+                            <th scope="col">Telefono*</th>
                             <th scope="col">Sueldo</th>
                         </tr>
                     </thead>
@@ -163,9 +163,10 @@ const Table = ({ brand }) => {
                         <tr>
                             <th scope="col">Nombre</th>
                             <th scope="col">Apellido</th>
-                            <th scope="col">Email*</th>
-                            <th scope="col">Telefono*</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Telefono</th>
                             <th scope="col">ID Campaña</th>
+                            <th scope="col">ID Curso</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -175,6 +176,7 @@ const Table = ({ brand }) => {
                             <td>rafasosa@gmail.com</td>
                             <td>1164111357</td>
                             <td>34</td>
+                            <td>16</td>
                         </tr>
                         <tr>
                             <th scope="row">Pedro</th>
@@ -182,6 +184,7 @@ const Table = ({ brand }) => {
                             <td>pedroperez@gmail.com</td>
                             <td>123456789</td>
                             <td>12</td>
+                            <td>256</td>
                         </tr>
                         <tr>
                             <th scope="row">Julieta</th>
@@ -189,6 +192,7 @@ const Table = ({ brand }) => {
                             <td>julidiaz@gmail.com</td>
                             <td>98987463738</td>
                             <td>78</td>
+                            <td>4</td>
                         </tr>
                     </tbody>
                 </table>
