@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import ResultTemplate from '../templates/ResultTemplate';
+import React, { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import ResultTemplate from "../templates/ResultTemplate";
 
 const Result = () => {
     const location = useLocation();
@@ -20,7 +20,7 @@ const Result = () => {
             navigate(`/error?brand=${brand}&dealer=${dealer}`);
     }, []);
 
-    if (brand === 'chevrolet')
+    if (brand === "chevrolet")
         return (
             <ResultTemplate brand={brand} dealer={dealer} result={result}>
                 {result.length &&
@@ -30,11 +30,11 @@ const Result = () => {
                             <div
                                 key={i}
                                 className={`card p-3 m-2 w-100 ${
-                                    String(leadId)?.includes('DUPLICADOS')
-                                        ? 'border-warning'
-                                        : String(leadId)?.includes('restarting')
-                                        ? 'border-danger'
-                                        : 'border-success'
+                                    String(leadId)?.includes("DUPLICADOS")
+                                        ? "border-warning"
+                                        : String(leadId)?.includes("restarting")
+                                        ? "border-danger"
+                                        : "border-success"
                                 }`}
                             >
                                 <small className="card-title">
@@ -42,13 +42,13 @@ const Result = () => {
                                 </small>
                                 <p
                                     className={`bold lead ${
-                                        String(leadId)?.includes('DUPLICADOS')
-                                            ? 'text-warning'
+                                        String(leadId)?.includes("DUPLICADOS")
+                                            ? "text-warning"
                                             : String(leadId)?.includes(
-                                                  'restarting'
+                                                  "restarting"
                                               )
-                                            ? 'text-danger'
-                                            : 'text-success'
+                                            ? "text-danger"
+                                            : "text-success"
                                     }`}
                                 >
                                     {leadId}
@@ -59,7 +59,7 @@ const Result = () => {
             </ResultTemplate>
         );
 
-    if (brand === 'toyota')
+    if (brand === "toyota")
         return (
             <ResultTemplate brand={brand} dealer={dealer} result={result}>
                 {result.length &&
@@ -77,12 +77,53 @@ const Result = () => {
             </ResultTemplate>
         );
 
-    if (brand === 'volkswagen')
+    if (brand === "volkswagen")
         return (
             <div className="d-flex justify-content-center mt-5 flex-column align-items-center">
                 <h3>{result?.message}</h3>
                 <a href="/excel/volkswagen">Cargar nuevo excel</a>
             </div>
+        );
+
+    if (brand === "ean")
+        return (
+            <ResultTemplate brand={brand} dealer={dealer} result={result}>
+                {result.length &&
+                    !leadsWithoutData &&
+                    result?.map(
+                        (
+                            {
+                                nombre,
+                                apellido,
+                                Proceso,
+                                Aviso,
+                                Prevalidacion,
+                                Error
+                            },
+                            i
+                        ) => (
+                            <div className="col-sm-4">
+                                <div key={i} className="card p-3 m-2">
+                                    <h5 className="card-title">
+                                        {i + 1} - {nombre} {apellido}
+                                    </h5>
+                                    <p className="bold text-success">
+                                        Proceso: {Proceso}
+                                    </p>
+                                    <p className="bold text-success">
+                                        Aviso: {Aviso}
+                                    </p>
+                                    <p className="bold text-success">
+                                        Prevalidacion: {Prevalidacion}
+                                    </p>
+                                    <p className="bold text-success">
+                                        Error: {Error}
+                                    </p>
+                                </div>
+                            </div>
+                        )
+                    )}
+            </ResultTemplate>
         );
 };
 

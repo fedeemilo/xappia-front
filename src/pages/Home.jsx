@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "../components/Card";
 import { SiToyota, SiVolkswagen, SiChevrolet } from "react-icons/si";
+import { ImBooks } from "react-icons/im";
 
 const BRAND_CARDS = [
     {
@@ -19,7 +20,7 @@ const BRAND_CARDS = [
         id: 2,
         text: "Volkswagen",
         icon: <SiVolkswagen style={{ fontSize: "1.6rem" }} />,
-        path: "excel/volkswagen",
+        path: "/excel/volkswagen",
         disabled: false
     },
     {
@@ -27,6 +28,13 @@ const BRAND_CARDS = [
         text: "Chevrolet",
         icon: <SiChevrolet style={{ fontSize: "3rem" }} />,
         path: "/excel/chevrolet",
+        disabled: false
+    },
+    {
+        id: 4,
+        text: "EAN",
+        icon: <ImBooks style={{ fontSize: "2.8rem" }} />,
+        path: "/excel/ean",
         disabled: false
     }
 ];
