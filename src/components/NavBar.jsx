@@ -1,27 +1,7 @@
 import React from "react";
-import { ICONS } from "../constants/icons";
-import { AiOutlineHome } from "react-icons/ai";
+import { getNavItems } from "../utils/getNavItems";
 
-const NAV_ITEMS = [
-    {
-        id: 1,
-        icon: (
-            <img
-                src={ICONS.XAPPIA_LOGO}
-                alt="xappia"
-                style={{ width: "6rem" }}
-            />
-        ),
-        classes: "nav-link",
-        to: "/"
-    },
-    {
-        id: 2,
-        icon: <AiOutlineHome />,
-        classes: "nav-link text-secondary h3",
-        to: "/"
-    }
-];
+const NAV_ITEMS = getNavItems();
 
 const NavBar = () => {
     return (

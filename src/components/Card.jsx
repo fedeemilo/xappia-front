@@ -1,6 +1,6 @@
 const Card = ({ icon, text, path, disabled, dealers }) => {
     return (
-        <div className="card w-100 bg-light h-100" style={{ width: "18rem" }}>
+        <div className="card w-100 bg-light h-100">
             <div className="mx-auto p-2">{icon}</div>
             <div className="card-body justify-content-center mx-auto text-center w-100">
                 <h5 className="card-title">{text}</h5>

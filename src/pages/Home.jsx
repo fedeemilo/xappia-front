@@ -1,51 +1,16 @@
 import React from "react";
 import Card from "../components/Card";
-import { SiToyota, SiVolkswagen, SiChevrolet } from "react-icons/si";
-import { ImBooks } from "react-icons/im";
+import { getBrandCards } from "../utils/getBrandCards";
 
-const BRAND_CARDS = [
-    {
-        id: 1,
-        text: "Toyota",
-        icon: <SiToyota style={{ fontSize: "2rem" }} />,
-        path: "/excel/toyota",
-        dealers: [
-            { id: "KAI", disabled: false },
-            { id: "TTC", disabled: false },
-            { id: "ASI", disabled: false },
-            { id: "TRI", disabled: false }
-        ]
-    },
-    {
-        id: 2,
-        text: "Volkswagen",
-        icon: <SiVolkswagen style={{ fontSize: "1.6rem" }} />,
-        path: "/excel/volkswagen",
-        disabled: false
-    },
-    {
-        id: 3,
-        text: "Chevrolet",
-        icon: <SiChevrolet style={{ fontSize: "3rem" }} />,
-        path: "/excel/chevrolet",
-        disabled: false
-    },
-    {
-        id: 4,
-        text: "EAN",
-        icon: <ImBooks style={{ fontSize: "2.8rem" }} />,
-        path: "/excel/ean",
-        disabled: false
-    }
-];
+const BRAND_CARDS = getBrandCards();
 
 const Home = () => {
     return (
         <div className="container">
-            <div className="row mt-4">
+            <div className="row mt-4 justify-content-center">
                 {BRAND_CARDS.map(
                     ({ id, icon, text, path, disabled, message, dealers }) => (
-                        <div key={id} className="col-sm-12 col-md-6 my-2">
+                        <div key={id} className="col-sm-12 col-md-5 my-2">
                             <Card
                                 icon={icon}
                                 text={text}

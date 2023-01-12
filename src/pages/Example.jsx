@@ -1,4 +1,3 @@
-import React from "react";
 import Table from "../components/Table";
 import { useParams, useLocation } from "react-router-dom";
 import { TiArrowBack } from "react-icons/ti";
