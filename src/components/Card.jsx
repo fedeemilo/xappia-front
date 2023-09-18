@@ -7,11 +7,12 @@ const Card = ({ icon, text, path, disabled, dealers }) => {
 
                 {dealers?.map(({ id, disabled }) => (
                     <a
+                        key={id}
                         href={`${path}?dealer=${id}`}
                         className={`btn btn-outline-info mt-2 m-1 ${
-                            disabled ? "disabled" : ""
+                            disabled ? 'disabled' : ''
                         }`}
-                        style={{ width: "6rem" }}
+                        style={{ width: '6rem' }}
                     >
                         {id}
                     </a>
@@ -21,7 +22,7 @@ const Card = ({ icon, text, path, disabled, dealers }) => {
                     <a
                         href={path}
                         className={`btn btn-outline-info w-50 mt-2 ${
-                            disabled ? "disabled" : ""
+                            disabled ? 'disabled' : ''
                         }`}
                     >
                         Cargar
@@ -29,7 +30,7 @@ const Card = ({ icon, text, path, disabled, dealers }) => {
                 )}
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default Card;
+export default Card

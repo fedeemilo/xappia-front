@@ -1,74 +1,21 @@
-import React, { useState } from "react";
-import { useParams, useNavigate, useLocation } from "react-router-dom";
-import axios from "axios";
-import { URL_BACKEND } from "../constants/urls";
-import Form from "../components/Form";
-import { SiMicrosoftexcel } from "react-icons/si";
+import Form from '../components/Form'
+import Example from '../components/Example'
+import useExcelLoad from '../hooks/useExcelLoad'
 
 const Excel = () => {
-    const [data, setData] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
-
-    const { brand } = useParams();
-    const useQuery = () => new URLSearchParams(useLocation().search);
-    const query = useQuery();
-    const dealer = query.get("dealer");
-    const navigate = useNavigate();
-    const urlBackend = URL_BACKEND(window.location.host);
-
-    const fetch = async () => {
-        const url = `${urlBackend}/leads/${brand}?dealer=${dealer}`;
-
-        try {
-            setIsLoading(true);
-            const {
-                data: { ok, result }
-            } = await axios.post(url, data);
-
-            if (ok)
-                navigate(`/result`, {
-                    state: { result, brand, dealer: dealer || "" }
-                });
-        } catch (err) {
-            console.log(err);
-            setIsLoading(false);
-            navigate(
-                `/error?brand=${brand}&dealer=${dealer}&error=${
-                    err?.response?.data?.error || "Error desconocido"
-                }`
-            );
-        }
-    };
-
-    const handleFileUpload = e => {
-        const file = e.target.files[0];
-
-        if (file) {
-            let formData = new FormData();
-            formData.append("file", file);
-            setData(formData);
-        }
-    };
-
-    const handleSubmit = e => {
-        e.preventDefault();
-        fetch();
-    };
+    const {
+        brand,
+        dealer,
+        handleSubmit,
+        handleFileUpload,
+        isLoading,
+        fileIsValid,
+        fileInputRef
+    } = useExcelLoad()
 
     return (
         <>
-            <div
-                className="d-flex align-items-center position-absolute"
-                style={{ right: "13.5%", top: "13%" }}
-            >
-                <p className="mt-3 font-italic">Ejemplo</p>
-                <a
-                    href={`/example/${brand}?dealer=${dealer}`}
-                    className="text-success h3 ml-2 "
-                >
-                    <SiMicrosoftexcel />
-                </a>
-            </div>
+            <Example brand={brand} dealer={dealer} />
             <div className="d-flex flex-column justify-content-center align-items-center p-3 mt-5">
                 <h2 className="p-3 mt-5">Cargar archivo excel </h2>
 
@@ -80,11 +27,13 @@ const Excel = () => {
                         handleSubmit={handleSubmit}
                         handleFileUpload={handleFileUpload}
                         isLoading={isLoading}
+                        fileIsValid={fileIsValid}
+                        fileInputRef={fileInputRef}
                     />
                 </div>
             </div>
         </>
-    );
-};
+    )
+}
 
-export default Excel;
+export default Excel
