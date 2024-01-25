@@ -76,7 +76,5 @@ export const validateExcelFile = (workbook, brand) => {
         rowNum++
     }
 
-    console.log({ errors })
-
     return errors
 }

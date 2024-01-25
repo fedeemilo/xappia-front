@@ -13,8 +13,6 @@ const Result = () => {
         Array.isArray(result) ? result?.every(lead => lead === null) : false
     const leadsWithoutData = dataIsNull()
 
-    console.log(result)
-
     useEffect(() => {
         if (!result || leadsWithoutData)
             navigate(`/error?brand=${brand}&dealer=${dealer}`)

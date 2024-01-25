@@ -33,7 +33,7 @@ const useExcelLoad = () => {
                     state: { result, brand, dealer: dealer || '' }
                 })
         } catch (err) {
-            console.log(err)
+            console.log({ err })
             setIsLoading(false)
             navigate(
                 `/error?brand=${brand}&dealer=${dealer}&error=${
@@ -73,8 +73,6 @@ const useExcelLoad = () => {
                 const errors = validateExcelFile(workbook, brand)
                 errorMessages.innerHTML = errors?.join('<br>')
                 errorMessages.style.opacity = errors?.length && 1
-
-                console.log({ validColumns })
 
                 if (validColumns && !errors.length) {
                     setFileIsValid(true)
