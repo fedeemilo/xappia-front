@@ -5,7 +5,7 @@ const NAV_ITEMS = getNavItems();
 
 const NavBar = () => {
     return (
-        <nav className="p-2 bg-light w-100 mx-auto rounded mt-n5">
+        <nav className="p-2 bg-white w-100 mx-auto rounded mt-n5">
             <ul className="nav justify-content-center">
                 {NAV_ITEMS.map(({ id, icon, classes, to }) => (
                     <li key={id} className="nav-item">

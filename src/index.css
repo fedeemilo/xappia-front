@@ -1,6 +1,7 @@
 body {
     font-family: 'Montserrat', sans-serif !important;
     padding-top: 50px;
+    background-color: #FAF9F6;
 }
 
 ::-webkit-scrollbar {
