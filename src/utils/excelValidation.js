@@ -1,29 +1,30 @@
 export const excelColsByBrand = {
     toyota: ['A', 'B', 'C', 'D', 'E', 'F'],
-    volkswagen: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
+    volkswagen: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
     chevrolet: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
     ean: ['A', 'B', 'C', 'D', 'E', 'F']
 }
 
 const excelTypesByCol = {
     toyota: {
-        A: { colName: 'Nombre y Apellido', type: 'string' },
-        B: { colName: 'Teléfono', type: 'number' },
-        C: { colName: 'Email', type: 'string' },
-        D: { colName: 'Modelo de Interés', type: 'number' },
-        E: { colName: 'Consulta', type: 'string' },
-        F: { colName: 'Origen', type: 'string' }
+        A: { colName: "Nombre y Apellido", type: "string" },
+        B: { colName: "Teléfono", type: "number" },
+        C: { colName: "Email", type: "string" },
+        D: { colName: "Modelo de Interés", type: "number" },
+        E: { colName: "Consulta", type: "string" },
+        F: { colName: "Origen", type: "string" },
     },
     volkswagen: {
-        A: { colName: 'Nombre y Apellido', type: 'string' },
-        B: { colName: 'Teléfono', type: 'number' },
-        C: { colName: 'Email', type: 'string' },
-        D: { colName: 'ID Concesionario', type: 'string' },
-        E: { colName: 'Producto', type: 'string' },
-        F: { colName: 'Origen', type: 'string' },
-        G: { colName: 'Autoahorro', type: 'boolean' }
-    }
-}
+        A: { colName: "Nombre y Apellido", type: "string" },
+        B: { colName: "Teléfono", type: "number" },
+        C: { colName: "Email", type: "string" },
+        D: { colName: "ID Concesionario", type: "string" },
+        E: { colName: "Producto (Modelo)", type: "string" },
+        F: { colName: "Origen", type: "string" },
+        G: { colName: "Autoahorro", type: "boolean" },
+        H: { colName: "Descripción", type: "string" },
+    },
+};
 
 function getDynamicColumnRange(sheet) {
     const columnRange = []
