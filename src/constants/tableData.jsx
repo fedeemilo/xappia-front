@@ -1,6 +1,6 @@
 const thsToyota = [
     { name: "Nombre y Apellido" },
-    { name: "Telefono" },
+    { name: "Teléfono" },
     { name: "Email" },
     { name: "Modelo de Interés" },
     { name: "Consulta" },
@@ -36,13 +36,13 @@ const trsToyota = [
 
 const thsVolkswagen = [
     { name: "Nombre y Apellido" },
-    { name: "Telefono" },
+    { name: "Teléfono" },
     { name: "Email" },
     { name: "ID Concesionario" },
     { name: "Producto (Modelo)" },
     { name: "Origen" },
     { name: "Autoahorro" },
-    { name: "Descripcion" },
+    { name: "Descripción" },
 ];
 
 const trsVolkswagen = [
@@ -84,7 +84,7 @@ const thsChevrolet = [
     { name: "Email*" },
     { name: "Auto" },
     { name: "Consulta" },
-    { name: "Telefono" },
+    { name: "Teléfono" },
     { name: "Sueldo" },
 ];
 
@@ -122,7 +122,7 @@ const thsEan = [
     { name: "Nombre" },
     { name: "Apellido" },
     { name: "Email" },
-    { name: "Telefono" },
+    { name: "Teléfono" },
     { name: "ID Campaña" },
     { name: "ID Curso" },
 ];
